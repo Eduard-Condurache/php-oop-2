@@ -1,6 +1,10 @@
 <?php
 
+include_once __DIR__ . '/../traits/Discount.php';
+
 class Food extends Product {
+
+    use HasDiscount;
 
     public $type;
 

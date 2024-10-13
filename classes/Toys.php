@@ -1,13 +1,17 @@
 <?php
 
+include_once __DIR__ . '/../traits/Discount.php';
+
 class Toys extends Product {
 
-    public $material;
+    use HasDiscount;
 
-    function __construct(string $title, float $price, string $description, string $img, string $material, Category|null $category) {
+    public $type;
+
+    function __construct(string $title, float $price, string $description, string $img, string $type, Category|null $category) {
         
         parent::__construct($title, $price, $description, $img, $category);
 
-        $this->material = $material;
+        $this->type = $type;
     }      
 }

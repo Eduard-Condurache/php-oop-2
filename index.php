@@ -101,6 +101,7 @@ $productsArr = [
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
     <main>
         <div class="container">
             <div class="row">
@@ -122,7 +123,16 @@ $productsArr = [
                             </h6>
 
                             <h6>
-                                €<?php echo $product->getPrice(); ?>
+                                <?php echo $product->type; ?>
+                            </h6>
+
+                            <h6>
+                                <span class="text-decoration-line-through">
+                                    €<?php echo $product->getPrice(); ?>
+                                </span>
+                            </h6>
+                            <h6 class="text-danger">
+                                Sconto: €<?php echo $product->getDiscountedPrice(); ?>
                             </h6>
                             
 

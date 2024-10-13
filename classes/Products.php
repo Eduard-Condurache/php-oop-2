@@ -1,8 +1,8 @@
 <?php
 
 class Product {
-    private $title; 
-    private $price; 
+    protected $title; 
+    protected $price; 
     private $description;
     private $img;
     protected $category;
@@ -10,7 +10,7 @@ class Product {
     function __construct(string $title, float $price, string $description, string $img, Category|null $category) {
         $this->title = $title;
         $this->price = $price;
-        $this->description = $description;
+        $this->setDescription($description);
         $this->img = $img;
         $this->setCategory($category);
     }
@@ -42,6 +42,16 @@ class Product {
 
     public function setCategory(Category|null $category) {
         $this->category = $category;
+    }
+
+    public function setDescription($description) {
+
+        if(strlen($description) > 0) {
+            $this->description = $description;
+        }
+        else {
+            throw new Exception('descrizione non valida non può essere vuota');
+        }
     }
 
 }
